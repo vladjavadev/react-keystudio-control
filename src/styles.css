@@ -1,0 +1,181 @@
+
+
+.middle-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-btn {
+  width: 80px;       /* ширина */
+  height: 80px;      /* высота */
+  border: none;      /* убираем стандартную рамку */
+  border-radius: 0;  /* убираем скругления */
+  background: #eee;  /* цвет фона */
+  cursor: pointer;   /* курсор при наведении */
+  font-size: 18px;   /* размер текста/иконки */
+
+}
+
+.control-btn img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.control-btn:hover {
+  background: #ddd;
+}
+
+.up {
+    transform: rotate(-90deg);
+}
+
+.left {
+    transform: rotate(180deg);
+}
+.down {
+    transform: rotate(90deg);
+}
+.stop {
+  background: #f66;
+  color: white;
+}
+.controls-wrapper {
+  position: absolute;
+  padding-right: 50px;
+  right: 20px;
+  display: flex;
+  height: 350px;;
+  flex-direction: row;
+  justify-content: center; /* ставимо блоки поруч */
+  gap: 40px; /* відступ між меню та стрілками */
+}
+
+.speed-menu {
+
+  display: flex;
+  flex-direction: column; /* вертикально */
+  align-self: flex-top;
+  gap: 10px;
+
+}
+
+.menu-btn {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+}
+
+.menu-input {
+  width: 60px;
+  text-align: center;
+}
+
+.robot-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-end;
+  gap: 15px;
+}
+
+.middle-row {
+  display: flex;
+  gap: 10px;
+}
+
+.left-side-menu{
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.tone-controls{
+    
+    display: flex;
+    gap: 5px;
+
+}
+
+
+.tone-controls img{
+    width: 40px;
+}
+
+.neo-pix-controls{
+    display: flex;
+    gap: 5px;
+}
+
+.neo-pix-controls img{
+    width: 40px;
+}
+
+.matrix-controls{
+    display: flex;
+    gap: 5px;
+}
+
+.matrix-controls img{
+    width: 40px;
+}
+
+.matrix.prev-btn{
+    transform: rotate(180deg);
+}
+
+.neo.prev-btn{
+    transform: rotate(180deg);
+}
+
+.auto-controls{
+    display: flex;
+    gap: 5px;
+}
+
+.auto-controls img{
+    width: 40px;
+}
+
+.right-side-menu{
+    display:flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 30px;
+}
+
+.menu-input {
+  width: 40px;        /* ширина поля */
+  height: 20px;        /* высота поля */
+  padding: 8px 12px;   /* внутренние отступы для текста */
+  font-size: 16px;     /* размер шрифта */
+  
+  border: 1px solid #ccc;   /* рамка */
+  border-radius: 10px;      /* закруглённые углы */
+  
+  outline: none;            /* убираем стандартное выделение */
+}
+
+
+.connection-wrapper{
+    display:flex;
+    gap:5px;
+}
+.ctn-input {
+  width: 300px;        /* ширина поля */
+  height: 30px;        /* высота поля */
+  padding: 8px 12px;   /* внутренние отступы для текста */
+  font-size: 16px;     /* размер шрифта */
+  
+  border: 1px solid #ccc;   /* рамка */
+  border-radius: 10px;      /* закруглённые углы */
+  
+  outline: none;            /* убираем стандартное выделение */
+}
+
+.spacer{
+    height: 100px;
+}
