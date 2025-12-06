@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">react-beetle</string>
+    <string name="title_activity_main">react-beetle</string>
+    <string name="package_name">com.vlad.beetle</string>
+    <string name="custom_url_scheme">com.vlad.beetle</string>
+</resources>

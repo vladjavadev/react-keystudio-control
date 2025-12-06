@@ -27,29 +27,36 @@
   background: #ddd;
 }
 
-.up {
+.up img{
     transform: rotate(-90deg);
 }
 
-.left {
+.left img{
     transform: rotate(180deg);
 }
-.down {
+.down img{
     transform: rotate(90deg);
 }
 .stop {
   background: #f66;
   color: white;
+}   
+
+button {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 .controls-wrapper {
-  position: absolute;
-  padding-right: 50px;
+  position: relative;
+  padding: 0 10px 10px 40px;
   right: 20px;
   display: flex;
   height: 350px;;
   flex-direction: row;
   justify-content: center; /* ставимо блоки поруч */
-  gap: 40px; /* відступ між меню та стрілками */
 }
 
 .speed-menu {
@@ -123,11 +130,11 @@
     width: 40px;
 }
 
-.matrix.prev-btn{
+.matrix.prev-btn img{
     transform: rotate(180deg);
 }
 
-.neo.prev-btn{
+.neo.prev-btn img{
     transform: rotate(180deg);
 }
 
@@ -143,10 +150,14 @@
 .right-side-menu{
     display:flex;
     flex-direction: column;
-    align-self: center;
+    flex:1;
+    align-self  : flex-end;
     gap: 30px;
 }
-
+.right-side-menu h2{
+  align-self: center;
+  padding-right: 100px;
+}
 .menu-input {
   width: 40px;        /* ширина поля */
   height: 20px;        /* высота поля */
@@ -165,7 +176,7 @@
     gap:5px;
 }
 .ctn-input {
-  width: 300px;        /* ширина поля */
+  width: 250px;        /* ширина поля */
   height: 30px;        /* высота поля */
   padding: 8px 12px;   /* внутренние отступы для текста */
   font-size: 16px;     /* размер шрифта */
@@ -178,4 +189,10 @@
 
 .spacer{
     height: 100px;
+}
+
+.server-response-wrapper{
+  display: flex;
+  align-items: center;
+  gap: 10px ;
 }
