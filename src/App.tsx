@@ -15,7 +15,7 @@ export function App() {
 
   const [speedValue, setSpeed] = useState(0)
   // ipTextAddr - це текст, який вводить користувач (наприклад, "192.168.4.1")
-  const [ipTextAddr, setTextAddr] = useState("")
+  const [ipTextAddr, setTextAddr] = useState("192.168.4.1")
   // ipAddr - це повний базовий URL (наприклад, "http://192.168.4.1:80")
   const [ipAddr, setAddr] = useState("")
   const [resp, setResp] = useState<string>("")
@@ -37,7 +37,7 @@ async function sendRequest(url: string) {
       setResp(`Не вдалось опрацювати запит -> ${url}`);
     } else {
       // Response body is in response.data
-      setResp(response.data);
+      setResp("Успішно!");
     }
   } catch (e) {
     console.error(`Fetch error for URL: ${url}`, e);
@@ -166,7 +166,7 @@ async function sendRequest(url: string) {
 
         ---
 
-        <h2>🌈 "Змінити колір" (NeoPixel)</h2>
+        <h2>🌈 (NeoPixel)</h2>
         <div className="neo-pix-controls">
           <button className="neo prev-btn" onClick={() => onLedChanged('z', 'g')}>
             <img src="./flip_arrow.png" alt="Previous Color"/>
@@ -181,7 +181,7 @@ async function sendRequest(url: string) {
 
         ---
         
-        <h2>😊 "Відобразити емоджі" (LED Matrix)</h2>
+        <h2>😊 (LED Matrix)</h2>
         <div className="matrix-controls">
           <button className="matrix prev-btn" onClick={() => onLedChanged('y', 'k')}>
             <img src="./flip_arrow.png" alt="Previous Emoji"/>
