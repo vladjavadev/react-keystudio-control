@@ -1,11 +1,15 @@
-import { useRef, useState, useCallback } from "react"
+import { useRef, useState } from "react"
 import styles from "./App.module.scss"
 import "./styles.css"
+import { CapacitorHttp } from '@capacitor/core';
+
 
 // Порт за замовчуванням, якщо користувач не вказав інший
 const DEFAULT_PORT = "80"
 
 export function App() {
+
+
   const imageCrlArrow = useRef(null)
   const imageCrlStop = useRef(null)
 
@@ -21,46 +25,44 @@ export function App() {
    * Надсилає HTTP GET запит на вказаний URL.
    * @param url Повний URL для запиту.
    */
-  const sendRequest = useCallback((url: string) => {
-    console.log(`Sending request to: ${url}`)
-    fetch(url)
-      .then(async response => {
-        if (!response.ok) {
-          console.error(`HTTP error! Status: ${response.status} for URL: ${url}`)
-          setResp(`Не вдалось опрацювати запит -> ${url}`)
-        }
-        setIsLoad(true)
+async function sendRequest(url: string) {
+  try {
+    setIsLoad(true);
+    setResp(`Відправка запиту`);
 
-        const responseText = await response.text()
+    const response = await CapacitorHttp.get({ url });
+
+    if (response.status >= 400) {
+      console.error(`HTTP error! Status: ${response.status} for URL: ${url}`);
+      setResp(`Не вдалось опрацювати запит -> ${url}`);
+    } else {
+      // Response body is in response.data
+      setResp(response.data);
+    }
+  } catch (e) {
+    console.error(`Fetch error for URL: ${url}`, e);
+    setResp(`Помилка з'єднання за url -> ${url}`);
+  } finally {
+    setIsLoad(false);
+    // setResp(`Готовий до команд`);
+  }
+}
 
 
-        setResp(responseText)
-
-        // Не обов'язково читати тіло відповіді, якщо це просто команда.
-        // Але можна додати обробку response.json() тут, якщо сервер повертає дані.
-      })
-          .catch(e => {
-            console.error(`Fetch error for URL: ${url}`, e)
-            setResp(`Помилка з'єднання за url -> ${url}`)
-
-          })
-          .finally(()=>{
-              setIsLoad(false)
-          })
       
-      }, [ipAddr])
   /**
    * Формує і надсилає команду, додаючи її до базової адреси та префіксу "/btn/".
    * @param command Буквений літерал команди (наприклад, "F", "a", "u/120#").
    */
-  const sendCommand = useCallback((command: string) => {
+  const sendCommand = async (command: string) => {
+    if(isLoad) return
     if (!ipAddr) {
       console.warn("IP Address not set. Cannot send command.")
       return
     }
     const fullUrl = `${ipAddr}/btn/${command}`
-    sendRequest(fullUrl)
-  }, [ipAddr])
+    await sendRequest(fullUrl)
+  }
 
   /**
    * Змінює швидкість і надсилає команди для обох моторів.
@@ -87,7 +89,7 @@ export function App() {
     // В реальному проекті варто додати таймаут між командами,
     // але для простоти прикладу залишаємо послідовне надсилання.
     sendCommand(r)
-    sendCommand(s)
+    setTimeout(()=>(sendCommand(s)),100)
   }
 
   /**

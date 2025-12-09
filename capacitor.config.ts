@@ -5,8 +5,15 @@ const config: CapacitorConfig = {
   appName: 'react-beetle',
   webDir: 'dist',
   "server":{
-    "androidScheme": "http"
+    "androidScheme": "http",
+    "cleartext" : true
+  },
+  // "plugins":{
+  //   "CapacitorHttp": {
+  //     "enabled": true,
+  //   }
   }
+
 };
 
 export default config;
