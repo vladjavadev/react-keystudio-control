@@ -4,6 +4,7 @@ import "./styles.css"
 import { CapacitorHttp } from '@capacitor/core';
 
 
+
 // Порт за замовчуванням, якщо користувач не вказав інший
 const DEFAULT_PORT = "80"
 
@@ -119,6 +120,8 @@ async function sendRequest(url: string) {
     console.log(`New Base Address Set: ${address}`)
   }
 
+
+  // setTextAddr("192.168.4.1")
   return (
     <div className={styles.layout}>
       <div className="left-side-menu">
